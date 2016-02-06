@@ -1,0 +1,45 @@
+﻿#menu {
+    width: 280px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: -280px;
+    background-color: #FFF;
+}
+
+    #menu .aba {
+        position: absolute;
+        right: -20px;
+        top: 0;
+        width: 20px;
+        height: 100%;
+    }
+
+    #menu.open {
+        transition: all 0.3s ease !important;
+        -webkit-transition: all 0.3s ease !important;
+        -moz-transition: all 0.3s ease !important;
+        transform: translate3d(280px, 0, 0) !important;
+        -webkit-transform: translate3d(280px, 0, 0) !important;
+        -moz-transform: translate3d(280px, 0, 0) !important;
+    }
+
+    #menu.close {
+        transition: all 0.3s ease !important;
+        -webkit-transition: all 0.3s ease !important;
+        -moz-transition: all 0.3s ease !important;
+        transform: translate3d(0, 0, 0) !important;
+        -webkit-transform: translate3d(0, 0, 0) !important;
+        -moz-transform: translate3d(0, 0, 0) !important;
+    }
+
+.mask {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    opacity: 0.0;
+    z-index: -1;
+}
