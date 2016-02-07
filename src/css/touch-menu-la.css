@@ -19,9 +19,6 @@
         transition: all 0.3s ease !important;
         -webkit-transition: all 0.3s ease !important;
         -moz-transition: all 0.3s ease !important;
-        transform: translate3d(280px, 0, 0) !important;
-        -webkit-transform: translate3d(280px, 0, 0) !important;
-        -moz-transform: translate3d(280px, 0, 0) !important;
     }
 
     .touch-menu-la.closed {
