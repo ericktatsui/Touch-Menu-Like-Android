@@ -1,4 +1,4 @@
-﻿#menu {
+﻿.touch-menu-la {
     width: 280px;
     height: 100%;
     position: absolute;
@@ -7,15 +7,15 @@
     background-color: #FFF;
 }
 
-    #menu .aba {
+    .touch-menu-la .tmla-handle {
         position: absolute;
-        right: -20px;
+        /* right: -20px; */
         top: 0;
-        width: 20px;
+        /* width: 20px; */
         height: 100%;
     }
 
-    #menu.open {
+    .touch-menu-la.opened {
         transition: all 0.3s ease !important;
         -webkit-transition: all 0.3s ease !important;
         -moz-transition: all 0.3s ease !important;
@@ -24,7 +24,7 @@
         -moz-transform: translate3d(280px, 0, 0) !important;
     }
 
-    #menu.close {
+    .touch-menu-la.closed {
         transition: all 0.3s ease !important;
         -webkit-transition: all 0.3s ease !important;
         -moz-transition: all 0.3s ease !important;
@@ -33,7 +33,7 @@
         -moz-transform: translate3d(0, 0, 0) !important;
     }
 
-.mask {
+.tmla-mask {
     width: 100%;
     height: 100%;
     position: absolute;

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1">
+    <meta name="msapplication-tap-highlight" content="no">
+	<title>Touch Menu Like Android Example</title>
+	<link rel="stylesheet" href="src/css/touch-menu-la.css">
+	<style>
+		body{
+			background: blue;
+		}
+	</style>
+</head>
+<body>
+	<div id="menu" class="touch-menu-la">
+		<ul class="menu-items">
+			<li>
+				<i class="material-icons">star_rate</i>Favoritos
+			</li>
+			<li>
+				<i class="material-icons">list</i>Listas
+			</li>
+			<li class="space"></li>
+			<li>hue</li>
+			<li>hue</li>
+			<li class="line"></li>
+			<li>hue</li>
+		</ul>
+	</div>
+	
+	<script src="lib/hammer.js/hammer.min.js"></script>
+	<script src="src/js/__touch-menu-la.js"></script>
+	<script>
+		var TouchMenu = TouchMenuLA({
+			target: document.getElementById('menu'),
+			//onOpen: function(){
+				//console.log(this);
+			//},
+			//onClose: function(){
+				//console.log(this);
+			//},
+			//zIndex: 99999,
+			//disableSlide: false,
+			//handleSize: 20,
+			//width: 280,
+			//disableMask: true,
+			//maxMaskOpacity: 0.5
+		});
+
+		/*
+		 *	Propriedades
+		 */
+		 //TouchMenu.isVisible
+		 //TouchMenu.currentPos
+
+		/*
+		 *	Métodos
+		 */
+		//TouchMenu.open();
+		//TouchMenu.close();
+		//TouchMenu.toggle();
+	</script>
+</body>
+</html>
