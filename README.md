@@ -30,12 +30,7 @@ Include plugin's css
 
 Include a div with class 'touch-menu-la'
 ```html
-<div id="menu" class="touch-menu-la">
-	<ul>
-		<li>Item 1</li>
-		<li>Item 2</li>
-	</ul>
-</div>
+<div id="menu" class="touch-menu-la"></div>
 ```
 
 Include hammer.js and plugin's js
