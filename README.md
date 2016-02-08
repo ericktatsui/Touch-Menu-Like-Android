@@ -73,7 +73,7 @@ Attribute			| Type				| Default		| Description
 
 ## Property and Methods
 
-You can use this propertie and methods after call the plugin.
+You can use this property and methods after call the plugin.
 
 **Property**
 
