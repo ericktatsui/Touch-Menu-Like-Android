@@ -1,0 +1,35 @@
+{
+  "name": "touch-menu-la",
+  "version": "0.5.0",
+  "description": "A touch menu like Navigation Drawer of Android.",
+  "main": "sample.hmtl",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ericktatsui/Touch-Menu-Like-Android.git"
+  },
+  "keywords": [
+    "menu",
+    "slide",
+    "menu",
+    "like",
+    "android",
+    "navigator",
+    "drawer",
+    "html5",
+    "javascript",
+    "plugin",
+    "touch",
+    "menu",
+    "cordova",
+    "ionic"
+  ],
+  "author": "Erick Tatsui",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ericktatsui/Touch-Menu-Like-Android/issues"
+  },
+  "homepage": "https://github.com/ericktatsui/Touch-Menu-Like-Android#readme"
+}

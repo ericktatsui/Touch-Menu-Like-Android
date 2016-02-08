@@ -1,0 +1,37 @@
+{
+  "name": "touch-menu-la",
+  "description": "A touch menu like Navigation Drawer of Android.",
+  "main": "sample.hmtl",
+  "authors": [
+    "Erick Tatsui"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "menu",
+    "slide",
+    "menu",
+    "like",
+    "android",
+    "navigator",
+    "drawer",
+    "html5",
+    "javascript",
+    "plugin",
+    "touch",
+    "menu",
+    "cordova",
+    "ionic"
+  ],
+  "homepage": "https://github.com/ericktatsui/Touch-Menu-Like-Android",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "hammerjs": "hammer.js#^2.0.6"
+  }
+}
