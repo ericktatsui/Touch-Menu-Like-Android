@@ -14,7 +14,7 @@ Use with cordova project, ionic.
 Browser	        | Support
 ---			    | ---
 I.E		        | 10+ ✔
-Chrome	     	| 4 ✔
+Chrome	     	| 4+ ✔
 Firefox     	| 3.5+ ✔
 Opera           | 23+ ✔
 Safari          | 3.1+ ✔
