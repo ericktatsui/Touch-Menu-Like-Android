@@ -1,0 +1,139 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+header {
+    width: 100%;
+    height: 56px;
+    background: rgba(0, 0, 0, 0.10);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+header i.fa, header i.material-icons {
+    height: 56px;
+    width: 56px;
+    line-height: 56px;
+    text-align: center;
+    color: #FFF;
+    float: left;
+    cursor: pointer;
+}
+
+header span.title {
+    height: 56px;
+    color: #FFF;
+    float: left;
+    line-height: 56px;
+}
+
+.touch-menu-la .inner-header {
+    width: 100%;
+    height: 100px;
+    background-image: url(../assets/inner-header-bg.jpg);
+    font-size: 26px;
+    font-weight: 300;
+    text-align: center;
+    color: #FFF;
+    padding: 20px 0;
+    box-sizing: border-box;
+}
+
+.touch-menu-la .inner-header span {
+    display: block;
+    font-size: 16px;
+}
+
+.menu-items {
+    list-style: none;
+    margin: 16px 0;
+    padding: 0;
+}
+
+.menu-items li a {
+    padding: 0 16px;
+    height: 48px;
+    line-height: 48px;
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: #000;
+}
+
+.menu-items li:hover a {
+    background: #F3F3F3;
+    cursor: pointer;
+}
+
+.menu-items li i {
+    width: 24px;
+    height: 24px;
+    float: left;
+    margin-top: 12px;
+    margin-right: 32px;
+}
+
+.inner-footer {
+    padding: 16px;
+    font-size: 14px;
+}
+
+.content {
+    position: absolute;
+    width: 100%;
+    height: 270px;
+    top: 50%;
+    margin-top: -135px;
+    z-index: 2;
+    line-height: 1.2em;
+    color: #FFF;
+    text-align: center;
+}
+
+.content h1 {
+    font-size: 50px;
+    font-weight: inherit;
+    margin: 0;
+    line-height: 1.2em;
+}
+
+.content h2 {
+    font-size: 30px;
+    font-weight: inherit;
+    margin: 0 0 20px 0;
+}
+
+.content p {
+    font-size:18px;
+    font-weight: inherit;
+    margin: 0;
+    line-height: 1.2em;
+}
+
+.content .buttons {
+    margin-top: 30px;
+}
+
+.content .buttons a {
+    text-decoration: none;
+    border: 1px solid #FFF;
+    padding: 10px 16px;
+    border-radius: 4px;
+    margin: 5px;
+    color: #FFF;
+    line-height: 51px;
+}
+
+.content .buttons a:hover {
+    background: #FFF;
+    color: #000;
+}
