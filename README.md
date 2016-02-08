@@ -11,15 +11,15 @@ Use with cordova project, ionic.
 
 ## Browser Support
 
-Broswer			| Support
+Browser	        | Support
 ---			    | ---
-I.E		| 10+
-Chrome		| ✔
-Firefox	| 3.5+ ✔
-Opera | 23+ ✔
-Safari | ✔
+I.E		        | 10+
+Chrome	     	| ✔
+Firefox     	| 3.5+ ✔
+Opera           | 23+ ✔
+Safari          | ✔
 Android Browser | 2.3+ ✔
-iOS Safari | 5.1+ ✔
+iOS Safari      | 5.1+ ✔
 
 ## Usage
 
