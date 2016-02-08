@@ -71,11 +71,11 @@ Attribute			| Type				| Default		| Description
 `onOpen`			| *Function*		| 				| Function called when menu is opened. (the scope is this menu instance, try to use 'this')
 `onClose`			| *Function*		| 				| Function called when menu is closed. (the scope is this menu instance, try to use 'this')
 
-## Propertie and Methods
+## Property and Methods
 
 You can use this propertie and methods after call the plugin.
 
-**Propertie**
+**Property**
 
 isVisible - Return a `Boolean` of state of menu
 
