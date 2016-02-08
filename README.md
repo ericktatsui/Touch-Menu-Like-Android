@@ -59,19 +59,23 @@ Attribute			| Type				| Default		| Description
 `handleSize`		| *Integer*			| `20`			| Size of handle to slide
 `disableMask`		| *Boolean*			| `false`		| Disable the mask
 `maxMaskOpacity`	| *Double*			| `0.5`			| Max opacity of mask (when menu is opened). Numbers between 0 and 1.
-`onOpen`			| *Function*		| 				| Function called when menu is opened. [the scope is this menu instance, try to use 'this']
-`onClose`			| *Function*		| 				| Function called when menu is closed. [the scope is this menu instance, try to use 'this']
+`onOpen`			| *Function*		| 				| Function called when menu is opened. (the scope is this menu instance, try to use 'this')
+`onClose`			| *Function*		| 				| Function called when menu is closed. (the scope is this menu instance, try to use 'this')
 
 ## Propertie and Methods
 
 You can use this propertie and methods after call the plugin.
 
 **Propertie**
+
 isVisible - Return a `Boolean` of state of menu
 
 **Methods**
+
 open(); - Open the menu
+
 close(); - close the menu
+
 toggle(); - open or close menu
 
 See this example:
