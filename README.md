@@ -21,6 +21,13 @@ Safari          | ✔
 Android Browser | 2.3+ ✔
 iOS Safari      | 5.1+ ✔
 
+## Getting started
+Four ways:
+*[Download .zip](https://github.com/ericktatsui/Touch-Menu-Like-Android/zipball/master)
+*Clone the repo: `git@github.com:ericktatsui/Touch-Menu-Like-Android.git`
+*Install with [Bower](http://bower.io/) `bower install touch-menu-la`
+*Install with [npm](https://npmjs.com/) `npm install touch-menu-la`
+
 ## Usage
 
 Include plugin's css
