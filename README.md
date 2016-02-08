@@ -78,7 +78,8 @@ close(); - close the menu
 
 toggle(); - open or close menu
 
-See this example:
+
+**See this example:**
 
 ```javascript
 var TouchMenu = TouchMenuLA({
