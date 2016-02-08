@@ -13,20 +13,22 @@ Use with cordova project, ionic.
 
 Browser	        | Support
 ---			    | ---
-I.E		        | 10+
-Chrome	     	| ✔
+I.E		        | 10+ ✔
+Chrome	     	| 4 ✔
 Firefox     	| 3.5+ ✔
 Opera           | 23+ ✔
-Safari          | ✔
-Android Browser | 2.3+ ✔
+Safari          | 3.1+ ✔
+Android Browser | 4.0+ ✔
 iOS Safari      | 5.1+ ✔
 
 ## Getting started
+
 Four ways:
-*[Download .zip](https://github.com/ericktatsui/Touch-Menu-Like-Android/zipball/master)
-*Clone the repo: `git@github.com:ericktatsui/Touch-Menu-Like-Android.git`
-*Install with [Bower](http://bower.io/) `bower install touch-menu-la`
-*Install with [npm](https://npmjs.com/) `npm install touch-menu-la`
+
+* [Download .zip](https://github.com/ericktatsui/Touch-Menu-Like-Android/zipball/master)
+* Clone the repo: `git@github.com:ericktatsui/Touch-Menu-Like-Android.git`
+* Install with [Bower](http://bower.io/) `bower install touch-menu-la`
+* Install with [npm](https://npmjs.com/) `npm install touch-menu-la`
 
 ## Usage
 
