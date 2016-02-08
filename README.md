@@ -7,7 +7,7 @@ hammer.js to touch events.
 Use with cordova project, ionic.
 
 # Demo
-[See a demo](https://github.com/ericktatsui/Touch-Menu-Like-Android/blob/master/sample.html)
+[Click here to see a demo](http://ericktatsui.github.io/Touch-Menu-Like-Android/sample.html)
 
 ## Browser Support
 
