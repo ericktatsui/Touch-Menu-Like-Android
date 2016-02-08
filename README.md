@@ -44,7 +44,7 @@ Include a div with class 'touch-menu-la'
 
 Include hammer.js and plugin's js
 ```html
-<script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.6/hammer.min.js"></script>
+<script src="lib/hammerjs/hammer.min.js"></script>
 <script src="src/js/touch-menu-la.min.js"></script>
 ```
 
