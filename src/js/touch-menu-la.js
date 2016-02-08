@@ -1,247 +1,224 @@
-var TouchMenuLA = function( options ){
-	var self,
+var TouchMenuLA = function (options) {
+    var self,
+        defaults,
 		menuClassName = '',
 		mask,
 		handle,
 		menuHammer,
 		maskHammer,
 		newPos = 0,
-		newMenuPos = 0,
 		currentPos = 0,
-
 		startPoint = 0,
 		countStart = 0,
-
 		velocity = 0.0;
 
-	var TouchMenuLA = function(){
-		self = this;
+    var TouchMenuLA = function () {
+        self = this;
 
-		this.isVisible = false;
+        defaults = {
+            width: 280,
+            zIndex: 99999,
+            disableSlide: false,
+            handleSize: 20,
+            disableMask: false,
+            maxMaskOpacity: 0.5
+        };
 
-		this.initialize();
-	};
+        this.isVisible = false;
 
-	TouchMenuLA.prototype.initElements = function(){
-		options.target.style.zIndex = self.getZIndex();
-		options.target.style.width = self.getMenuWidth() + 'px';
-		options.target.style.left = - options.width + 'px';
+        this.initialize();
+    };
 
-		handle = document.createElement( 'div' );
-		handle.className = "tmla-handle";
-		handle.style.width = self.getHandleSize() + 'px';
-		handle.style.right = - self.getHandleSize() + 'px';
+    TouchMenuLA.prototype.setDefaultsOptions = function () {
+        for (var key in defaults) {
+            if (!options[key]) {
+                options[key] = defaults[key];
+            }
+        }
+    };
 
-		options.target.appendChild( handle );
-		
-		if( !options.disableMask ){
-			mask = document.createElement( 'div' );
-			mask.className = 'tmla-mask';
-			document.body.appendChild( mask );
-			self.setMaxMaskOpacity();
+    TouchMenuLA.prototype.initElements = function () {
+        options.target.style.zIndex = options.zIndex;
+        options.target.style.width = options.width + 'px';
+        options.target.style.left = -options.width + 'px';
 
-			maskHammer = new Hammer( mask, null );
-		}
-	};
+        handle = document.createElement('div');
+        handle.className = "tmla-handle";
+        handle.style.width = options.handleSize + 'px';
+        handle.style.right = -options.handleSize + 'px';
 
-	TouchMenuLA.prototype.touchStartMenu = function() {
-		menuHammer.on('panstart panmove', function( ev ) {
-			newPos = currentPos + ev.deltaX;
-			self.changeMenuPos();
-			velocity = Math.abs( ev.velocity );
-		});
-	};
+        options.target.appendChild(handle);
 
-	TouchMenuLA.prototype.changeMenuPos = function() {
-		if ( newPos <= options.width ) {
-			options.target.className = menuClassName + ' tmla-menu';
-			options.target.style.transform = 'translate3d(' + newPos + 'px, 0, 0)';
-			options.target.style.WebkitTransform = 'translate3d(' + newPos + 'px, 0, 0)';
-			options.target.style.MozTransform = 'translate3d(' + newPos + 'px, 0, 0)';
+        if (!options.disableMask) {
+            mask = document.createElement('div');
+            mask.className = 'tmla-mask';
+            document.body.appendChild(mask);
 
-			if( !options.disableMask ){
-				this.setMaskOpacity(newPos);
-			}
-		}
-	};
+            maskHammer = new Hammer(mask, null);
+        }
+    };
 
-	TouchMenuLA.prototype.setMaskOpacity = function( newMenuPos ) {
-		var opacity = parseFloat( ( newMenuPos / options.width ) * options.maxMaskOpacity );
+    TouchMenuLA.prototype.touchStartMenu = function () {
+        menuHammer.on('panstart panmove', function (ev) {
+            newPos = currentPos + ev.deltaX;
+            self.changeMenuPos();
+            velocity = Math.abs(ev.velocity);
+        });
+    };
 
-		mask.style.opacity = opacity;
+    TouchMenuLA.prototype.changeMenuPos = function () {
+        if (newPos <= options.width) {
+            options.target.className = menuClassName + ' tmla-menu';
+            options.target.style.transform = 'translate3d(' + newPos + 'px, 0, 0)';
+            options.target.style.WebkitTransform = 'translate3d(' + newPos + 'px, 0, 0)';
+            options.target.style.MozTransform = 'translate3d(' + newPos + 'px, 0, 0)';
 
-		if (opacity === 0 ) {
-			mask.style.zIndex = -1;
-		}else{
-			mask.style.zIndex = options.zIndex - 1;
-		}
-	};
+            if (!options.disableMask) {
+                this.setMaskOpacity(newPos);
+            }
+        }
+    };
 
-	TouchMenuLA.prototype.touchEndMenu = function() {
-		menuHammer.on('panend pancancel', function( ev ) {
-			currentPos = ev.deltaX;
-			self.checkMenuState( ev.deltaX );
-		});
-	};
+    TouchMenuLA.prototype.setMaskOpacity = function (newMenuPos) {
+        var opacity = parseFloat((newMenuPos / options.width) * options.maxMaskOpacity);
 
-	TouchMenuLA.prototype.eventStartMask = function() {
-		maskHammer.on('panstart panmove', function( ev ) {
-			if ( ev.center.x <= options.width && self.isVisible ) {
-				countStart++;
+        mask.style.opacity = opacity;
 
-				if ( countStart == 1 ) {
-					startPoint = ev.deltaX;
-				}
-				
-				if ( ev.deltaX < 0 ) {
-					newPos = ( ev.deltaX - startPoint ) + options.width;
-					self.changeMenuPos();
-					velocity = Math.abs( ev.velocity );
-				}
-			}
-		});
-	};
+        if (opacity === 0) {
+            mask.style.zIndex = -1;
+        } else {
+            mask.style.zIndex = options.zIndex - 1;
+        }
+    };
 
-	TouchMenuLA.prototype.eventEndMask = function() {
-		maskHammer.on('panend pancancel', function( ev ) {
-			self.checkMenuState( ev.deltaX );
-			countStart = 0;
-		});
-	};
+    TouchMenuLA.prototype.touchEndMenu = function () {
+        menuHammer.on('panend pancancel', function (ev) {
+            currentPos = ev.deltaX;
+            self.checkMenuState(ev.deltaX);
+        });
+    };
 
-	TouchMenuLA.prototype.clickMaskClose = function() {
-		mask.addEventListener('click', function() {
-			self.close();
-		});
-	};
+    TouchMenuLA.prototype.eventStartMask = function () {
+        maskHammer.on('panstart panmove', function (ev) {
+            if (ev.center.x <= options.width && self.isVisible) {
+                countStart++;
 
-	TouchMenuLA.prototype.checkMenuState = function( deltaX ) {
-		if ( velocity >= 1.0 ) {
-			if ( deltaX >= 0 ) {
-				self.open();
-			} else {
-				self.close();
-			}
-		} else {
-			if ( newPos >= 100 ) {
-				self.open();
-			} else {
-				self.close();
-			}
-		}
-	};
+                if (countStart == 1) {
+                    startPoint = ev.deltaX;
+                }
 
-	TouchMenuLA.prototype.open = function() {
-		options.target.className = menuClassName + " tmla-menu opened";
-		options.target.style.transform = 'translate3d(' + options.width + 'px, 0, 0)';
-		options.target.style.WebkitTransform = 'translate3d(' + options.width + 'px, 0, 0)';
-		options.target.style.MozTransform = 'translate3d(' + options.width + 'px, 0, 0)';
+                if (ev.deltaX < 0) {
+                    newPos = (ev.deltaX - startPoint) + options.width;
+                    self.changeMenuPos();
+                    velocity = Math.abs(ev.velocity);
+                }
+            }
+        });
+    };
 
-		currentPos = options.width;
-		this.isVisible = true;
+    TouchMenuLA.prototype.eventEndMask = function () {
+        maskHammer.on('panend pancancel', function (ev) {
+            self.checkMenuState(ev.deltaX);
+            countStart = 0;
+        });
+    };
 
-		self.showMask();
-		self.invoke( options.onOpen );
-	};
+    TouchMenuLA.prototype.clickMaskClose = function () {
+        mask.addEventListener('click', function () {
+            self.close();
+        });
+    };
 
-	TouchMenuLA.prototype.close = function() {
-		options.target.className = menuClassName + " tmla-menu closed";
-		currentPos = 0;
-		self.isVisible = false;
+    TouchMenuLA.prototype.checkMenuState = function (deltaX) {
+        if (velocity >= 1.0) {
+            if (deltaX >= 0) {
+                self.open();
+            } else {
+                self.close();
+            }
+        } else {
+            if (newPos >= 100) {
+                self.open();
+            } else {
+                self.close();
+            }
+        }
+    };
 
-		self.hideMask();
-		self.invoke( options.onClose );
-	};
+    TouchMenuLA.prototype.open = function () {
+        options.target.className = menuClassName + " tmla-menu opened";
+        options.target.style.transform = 'translate3d(' + options.width + 'px, 0, 0)';
+        options.target.style.WebkitTransform = 'translate3d(' + options.width + 'px, 0, 0)';
+        options.target.style.MozTransform = 'translate3d(' + options.width + 'px, 0, 0)';
 
-	TouchMenuLA.prototype.toggle = function(){
-		if ( self.isVisible ) {
-			self.close();
-		}else{
-			self.open();
-		}
-	};
+        currentPos = options.width;
+        this.isVisible = true;
 
-	TouchMenuLA.prototype.showMask = function() {
-		mask.className = "tmla-mask transition";
-		mask.style.opacity = options.maxMaskOpacity;
-		mask.style.zIndex = options.zIndex - 1;
-	};
+        self.showMask();
+        self.invoke(options.onOpen);
+    };
 
-	TouchMenuLA.prototype.hideMask = function() {
-		mask.className = "tmla-mask transition";
-		mask.style.opacity = 0;
-		mask.style.zIndex = -1;
-	};
+    TouchMenuLA.prototype.close = function () {
+        options.target.className = menuClassName + " tmla-menu closed";
+        currentPos = 0;
+        self.isVisible = false;
 
-	TouchMenuLA.prototype.setMenuClassName = function() {
-		menuClassName = options.target.className;
-	};
+        self.hideMask();
+        self.invoke(options.onClose);
+    };
 
-	TouchMenuLA.prototype.getMenuWidth = function() {
-		if(!options.width){
-			options.width = 280;
-		}
+    TouchMenuLA.prototype.toggle = function () {
+        if (self.isVisible) {
+            self.close();
+        } else {
+            self.open();
+        }
+    };
 
-		return options.width;
-	};
+    TouchMenuLA.prototype.showMask = function () {
+        mask.className = "tmla-mask transition";
+        mask.style.opacity = options.maxMaskOpacity;
+        mask.style.zIndex = options.zIndex - 1;
+    };
 
-	TouchMenuLA.prototype.getZIndex = function() {
-		if(!options.zIndex){
-			options.zIndex = 99999;
-		}
+    TouchMenuLA.prototype.hideMask = function () {
+        mask.className = "tmla-mask transition";
+        mask.style.opacity = 0;
+        mask.style.zIndex = -1;
+    };
 
-		return options.zIndex;
-	};
+    TouchMenuLA.prototype.setMenuClassName = function () {
+        menuClassName = options.target.className;
+    };
 
-	TouchMenuLA.prototype.getHandleSize = function() {
-		if(!options.handleSize){
-			options.handleSize = 20;
-		}
+    TouchMenuLA.prototype.invoke = function (fn) {
+        if (fn) {
+            fn.apply(self);
+        }
+    };
 
-		return options.handleSize;
-	};
+    TouchMenuLA.prototype.initialize = function () {
+        if (options.target) {
+            menuHammer = Hammer(options.target, null);
 
-	TouchMenuLA.prototype.getDisableSlide = function() {
-		if(!options.disableSlide){
-			options.disableSlide = false;
-		}
+            self.setDefaultsOptions();
+            self.setMenuClassName();
+            self.initElements();
 
-		return options.handleSize;
-	};
+            if (!options.disableSlide) {
+                self.touchStartMenu();
+                self.touchEndMenu();
+                self.eventStartMask();
+                self.eventEndMask();
+            }
 
-	TouchMenuLA.prototype.setMaxMaskOpacity = function() {
-		if(!options.maxMaskOpacity){
-			options.maxMaskOpacity = 0.5;
-		}
+            if (!options.disableMask) {
+                self.clickMaskClose();
+            }
+        } else {
+            console.error('TouchMenuLA: The option \'target\' is required.');
+        }
+    };
 
-		return options.maxMaskOpacity;
-	};
-
-	TouchMenuLA.prototype.invoke = function( fn ) {
-		if( fn ){
-			fn.apply(self);
-		}
-	};
-
-	TouchMenuLA.prototype.initialize = function() {
-		if(options.target){
-			menuHammer = Hammer( options.target, null );
-
-			self.setMenuClassName();
-			self.initElements();
-
-			if (!options.disableSlide) {
-				self.touchStartMenu();
-				self.touchEndMenu();
-				self.eventStartMask();
-				self.eventEndMask();
-			}
-
-			self.clickMaskClose();
-		}else{
-			console.error('TouchMenuLA: The option \'target\' is required.');
-		}
-	};
-
-	return new TouchMenuLA();
+    return new TouchMenuLA();
 };
