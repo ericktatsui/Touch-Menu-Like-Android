@@ -1,6 +1,5 @@
 var TouchMenuLA = function( options ){
 	var self,
-		//hammer = Hammer( options.target, null ),
 		menuClassName = '',
 		mask,
 		handle,
@@ -19,7 +18,6 @@ var TouchMenuLA = function( options ){
 		self = this;
 
 		this.isVisible = false;
-		this.disableSlide = false;
 
 		this.initialize();
 	};
@@ -241,7 +239,7 @@ var TouchMenuLA = function( options ){
 
 			self.clickMaskClose();
 		}else{
-			console.error('TouchMenuLA: O parametro \'target\' é obrigatório.');
+			console.error('TouchMenuLA: The option \'target\' is required.');
 		}
 	};
 
