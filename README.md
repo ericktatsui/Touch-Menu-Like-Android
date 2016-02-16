@@ -18,7 +18,7 @@ Chrome	     	| 4+ ✔
 Firefox     	| 3.5+ ✔
 Opera           | 23+ ✔
 Safari          | 3.1+ ✔
-Android Browser | 4.0+ ✔
+Android Browser | 2.3.4+ ✔
 iOS Safari      | 5.1+ ✔
 
 ## Getting started
