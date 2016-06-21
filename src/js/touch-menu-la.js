@@ -66,12 +66,17 @@ var TouchMenuLA = function (options) {
         });
     };
 
+    TouchMenuLA.prototype.animateToPosition = function (pos) {
+        options.target.style.transform = 'translate3d(' + pos + 'px, 0, 0)';
+        options.target.style.WebkitTransform = 'translate3d(' + pos + 'px, 0, 0)';
+        options.target.style.MozTransform = 'translate3d(' + pos + 'px, 0, 0)';
+
+    };
+
     TouchMenuLA.prototype.changeMenuPos = function () {
         if (newPos <= options.width) {
             options.target.className = menuClassName + ' tmla-menu';
-            options.target.style.transform = 'translate3d(' + newPos + 'px, 0, 0)';
-            options.target.style.WebkitTransform = 'translate3d(' + newPos + 'px, 0, 0)';
-            options.target.style.MozTransform = 'translate3d(' + newPos + 'px, 0, 0)';
+            this.animateToPosition(newPos);
 
             if (!options.disableMask) {
                 this.setMaskOpacity(newPos);
@@ -147,9 +152,7 @@ var TouchMenuLA = function (options) {
 
     TouchMenuLA.prototype.open = function () {
         options.target.className = menuClassName + " tmla-menu opened";
-        options.target.style.transform = 'translate3d(' + options.width + 'px, 0, 0)';
-        options.target.style.WebkitTransform = 'translate3d(' + options.width + 'px, 0, 0)';
-        options.target.style.MozTransform = 'translate3d(' + options.width + 'px, 0, 0)';
+        this.animateToPosition(options.width);
 
         currentPos = options.width;
         this.isVisible = true;
