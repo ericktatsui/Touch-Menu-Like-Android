@@ -16,18 +16,18 @@
     }
 
     .touch-menu-la.opened {
-        transition: all 0.3s ease !important;
-        -webkit-transition: all 0.3s ease !important;
-        -moz-transition: all 0.3s ease !important;
+        transition: all 0.3s ease-out !important;
+        -webkit-transition: all 0.3s ease-out !important;
+        -moz-transition: all 0.3s ease-out !important;
     }
 
     .touch-menu-la.closed {
-        transition: all 0.3s ease !important;
-        -webkit-transition: all 0.3s ease !important;
-        -moz-transition: all 0.3s ease !important;
-        transform: translate3d(0, 0, 0) !important;
-        -webkit-transform: translate3d(0, 0, 0) !important;
-        -moz-transform: translate3d(0, 0, 0) !important;
+        transition: all 0.3s ease-out !important;
+        -webkit-transition: all 0.3s ease-out !important;
+        -moz-transition: all 0.3s ease-out !important;
+        transform: none !important;
+        -webkit-transform: none !important;
+        -moz-transform: none !important;
     }
 
 .tmla-mask {
