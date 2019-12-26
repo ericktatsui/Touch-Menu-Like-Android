@@ -1,4 +1,8 @@
-# Touch Menu Like Android
+# Touch Menu Like Android [DEPRECATED]
+
+**[Warning] This library is deprecated, it hasn't received any updates since 2017.**
+
+----
 
 hammer.js to touch events.
 
