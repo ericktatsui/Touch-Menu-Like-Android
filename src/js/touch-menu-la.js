@@ -1,4 +1,4 @@
-var TouchMenuLA = function (options) {
+window.TouchMenuLA = function (options) {
     var self,
         defaults,
 		menuClassName = '',
